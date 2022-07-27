@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/favourites_screen.dart';
-import 'package:meals_app/screens/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,20 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Favourites',
             activeIcon: Icon(CupertinoIcons.star_fill),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.settings),
-            label: 'Settings',
-          ),
         ],
       ),
       tabBuilder: (context, index) {
         switch (index) {
           case 0:
             return const CategoriesScreen();
-          case 1:
-            return const FavouritesScreen();
           default:
-            return const Settings();
+            return const FavouritesScreen();
         }
       },
     );
