@@ -25,38 +25,52 @@ class MealItemDetails extends StatelessWidget {
           onPressed: () {
             showCupertinoModalPopup(
               context: context,
-              builder:(context) => CupertinoActionSheet(
-        actions: [
-          Container(
-            color: const Color.fromRGBO(28, 28, 29, 1),
-            child: CupertinoActionSheetAction(
-              isDestructiveAction: true,
-              child: const Text(
-                'Delete',
-                style: TextStyle(
-                  fontSize: 18,
+              builder: (context) => CupertinoActionSheet(
+                actions: [
+                  Container(
+                    color: const Color.fromRGBO(28, 28, 29, 1),
+                    child: CupertinoActionSheetAction(
+                      child: const Text(
+                        'Mark as Favourite',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                  Container(
+                    color: const Color.fromRGBO(28, 28, 29, 1),
+                    child: CupertinoActionSheetAction(
+                      isDestructiveAction: true,
+                      child: const Text(
+                        'Delete',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.of(context).pop(details[0]);
+                      },
+                    ),
+                  ),
+                ],
+                cancelButton: Container(
+                  color: const Color.fromRGBO(28, 28, 29, 1),
+                  child: CupertinoActionSheetAction(
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ),
               ),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.of(context).pop(details[0]);
-              },
-            ),
-          ),
-        ],
-        cancelButton: Container(
-          color: const Color.fromRGBO(28, 28, 29, 1),
-          child: CupertinoActionSheetAction(
-            child: const Text(
-              'Cancel',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
-      ),
             );
           },
         ),
@@ -159,39 +173,6 @@ class MealItemDetails extends StatelessWidget {
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-      );
-
-  Widget buildActionSheet(BuildContext context, String mealID ) => CupertinoActionSheet(
-        actions: [
-          Container(
-            color: const Color.fromRGBO(28, 28, 29, 1),
-            child: CupertinoActionSheetAction(
-              isDestructiveAction: true,
-              child: const Text(
-                'Delete',
-                style: TextStyle(
-                  fontSize: 18,
-                ),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.of(context).pop(mealID);
-              },
-            ),
-          ),
-        ],
-        cancelButton: Container(
-          color: const Color.fromRGBO(28, 28, 29, 1),
-          child: CupertinoActionSheetAction(
-            child: const Text(
-              'Cancel',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
           ),
         ),
       );
