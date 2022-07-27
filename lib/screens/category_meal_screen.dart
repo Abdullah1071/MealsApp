@@ -88,7 +88,6 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
                         child: CupertinoSwitch(
                           value: _isGlutenFree,
                           onChanged: (value) {
-                            print(value);
                             setState(() {
                               displayedMeals = dummyMeals
                                   .where((meal) => meal.isGlutenFree == value)
